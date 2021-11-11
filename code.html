@@ -48,7 +48,8 @@
                         <a class="nav-link mx-1 active" aria-current="page" href="code.html">App Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-1" target="_blank" href="https://github.com/JorySmith/LuckyNumberEven">GitHub Repo</a>
+                        <a class="nav-link mx-1" target="_blank"
+                            href="https://github.com/JorySmith/LuckyNumberEven">GitHub Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mx-1" target="_blank" href="https://www.joryiansmith.dev/">My Portfolio</a>
@@ -65,18 +66,75 @@
                 <div class="col-md-8">
                     <pre class="line-numbers">
                         <!-- NOTE: Prism doesn't handle template literals well -->
-                        <code class="language-javascript">
-                            // Call Hello World
-                            function helloWorld() {
-                                alert("Hello World");
+                        <code class="language-javascript">                            
+                            // Get the values
+                            // Starts or controller function
+                            function getValues() {
+                                // Get values form the page
+                                let startValue = document.getElementById("startValue").value;
+                                let endValue = document.getElementById("endValue").value;
+
+                                // Validate inputs
+                                // Try to parse input into integers 
+                                startValue = parseInt(startValue);
+                                endValue = parseInt(endValue);
+
+                                // If inputs are integers, call generateNumbers
+                                if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                                    // Call generateNumbers
+                                    let numbers = generateNumbers(startValue,endValue);
+                                    // Call displayNumbers
+                                    displayNumbers(numbers);
+                                } else {
+                                    alert("Please enter integers");
+                                }        
+                            }
+
+                            // Generate numbers from startValue and endValue
+                            // Logic functions
+                            function generateNumbers(sValue, eValue) {
+                                let numbers = [];
+                                // Get all numbers from start to end
+                                for(let i = sValue; i <= eValue; i++) {
+                                    numbers.push(i);
+                                }
+                                return numbers;
+                            }
+
+                            // Display numbers on page, high even numbers in bold
+                            // Display or view functions
+                            function displayNumbers(numbers) {
+                                // Create a rows template
+                                let rowsTemplate = "";
+                                // Loop through each number from startValue to endValue
+                                for (let i = 0; i < numbers.length; i++) {
+                                    // Store each value
+                                    let number = numbers[i];
+                                    // See if number is even, store result
+                                    let className = ""
+                                    // If even, assign even to className
+                                    if (number % 2 == 0) {
+                                        className = "even"
+                                    }
+                                    // Create a table row with className and TD for each value
+                                    rowsTemplate += `&lttr class="${className}">&lttd>${number}&lt/td>&lt/tr>`;
+                                    // Add new row to results page
+                                    document.getElementById("results").innerHTML = rowsTemplate;                                    
+                                }
                             }
                         </code>
                     </pre>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="mt-2">Hello World</h5>
-                    <p class="mt-4">The code is structured in one function. <br><br>
-                        Hello World is a function that displays an alert message, "Hello World"
+                    <h5 class="mt-2">Lucky Number Even</h5>
+                    <p class="mt-4">The code is structured in three functions: getValues(), generateNumbers(), and displayNumbers(). <br><br>
+                        The program begins by activating an eventListener on the "Run Loop" button. Once clicked, the getValues() function is called. This function extracts the first and second input values and ensures the input values are stored as integers by using parseInt(). Then validation is performed to ensure the input values were successfully stored as integers. If validation succeeds, the generateNumbers() function is called with both values passed as parameters. <br><br>
+
+                        generateNumbers() takes these parameters, the start and end values, and runs a for loop, pushing each number to an array that is returned once the loop is complete. <br><br>
+
+                        Next, displayNumbers() is called with the new array of numbers passed in as a parameter. Another for loop is run, first storing each index's value, then checking to see if the value is even. If the number is even, the "even" string is assigned to the variable class, which is created in CSS and will be used later. Then a variable is created to store a new table row and table data elements for each value using template literals, which applies the className variable. Finally, this new table row is injected into the DOM by updating the Results section.<br><br>
+
+                        The result is now viewable on the page with each value getting its own row and even numbers in bold font weight.
                     </p>
                 </div>
             </div>
