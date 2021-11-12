@@ -1,12 +1,10 @@
 # Lucky Number Even - A Coding Project
-
 A JavaScript program that displays numbers from 0 to 100 while highlighting even numbers.
 
-# Live demo: 
+# Live Demo
 https://jorysmith.github.io/LuckyNumberEven/
 
 # Description
-
 The code is structured in three functions: getValues(), generateNumbers(), and displayNumbers().
 
 The program begins by activating an eventListener on the "Run Loop" button. Once clicked, the getValues() function is called. This function extracts the first and second input values and ensures the input values are stored as integers by using parseInt(). Then validation is performed to ensure the input values were successfully stored as integers. If validation succeeds, the generateNumbers() function is called with both values passed as parameters. 
