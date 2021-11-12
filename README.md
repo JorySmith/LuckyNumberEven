@@ -11,6 +11,6 @@ The program begins by activating an eventListener on the "Run Loop" button. Once
 
 generateNumbers() takes these parameters, the start and end values, and runs a for loop, pushing each number to an array that is returned once the loop is complete. 
 
-Next, displayNumbers() is called with the new array of numbers passed in as a parameter. Another for loop is run, first storing each index's value, then checking to see if the value is even. If the number is even, the "even" string is assigned to the variable class, which is created in CSS and will be used later. Then a variable is created to store a new table row and table data elements for each value using template literals, which applies the className variable. Finally, this new table row is injected into the DOM by updating the Results section.<br><br>
+Next, displayNumbers() is called with the new array of numbers passed in as a parameter. Another for loop is run, first storing each index's value, then checking to see if the value is even. If the number is even, the "even" string is assigned to the variable class, which is created in CSS and will be used later. Then a variable is created to store a new table row and table data elements for each value using template literals, which applies the className variable. Finally, this new table row is injected into the DOM by updating the Results section.
 
 The result is now viewable on the page with each value getting its own row and even numbers in bold font weight.
